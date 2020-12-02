@@ -1,0 +1,16 @@
+.container {
+  border: 1px solid lightslategray;
+}
+
+section {
+  padding: 10px;
+}
+
+section + section {
+  border-top: 1px solid lightslategray;
+}
+
+.title {
+  color: slategray;
+  margin-bottom: 10px;
+}

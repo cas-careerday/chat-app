@@ -1,0 +1,28 @@
+<div class="container" *ngIf="!registered">
+  <section>
+    <label for="username">Username: </label>
+    <input id="username" [(ngModel)]="username" (keyup.enter)="register()">
+    <button (click)="register()">Join</button>
+  </section>
+</div>
+
+<div class="container" *ngIf="registered">
+  <section class="messages">
+    <div class="title">Messages</div>
+    <div class="message" *ngFor="let message of messages$ | async">
+      <span class="message-user">{{message.username}}: </span>
+      <span class="message-text">{{message.text}}</span>
+    </div>
+  </section>
+  <section class="users">
+    <div class="title">Users</div>
+    <div class="user" *ngFor="let user of users$ | async">
+      <span class="user-name">{{user}}</span>
+    </div>
+  </section>
+  <section class="input">
+    <label for="message-input">Message: </label>
+    <input id="message-input" [(ngModel)]="message" (keyup.enter)="sendMessage()">
+    <button (click)="sendMessage()">Send</button>
+  </section>
+</div>
